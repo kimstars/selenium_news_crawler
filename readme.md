@@ -6,4 +6,4 @@ Use selenium to crawl news from gg search engineering
 
 
 
-![shot1](image\shot1.png)
+![shot1](./image/shot1.png)
