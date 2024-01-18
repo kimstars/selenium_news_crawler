@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import time 
 from unidecode import unidecode
+import json 
 
 def initDriver():
 
@@ -82,7 +83,7 @@ def get_info(item):
 driver = initDriver()
 from selenium.webdriver.common.keys import Keys
 keyword = "vụ tấn công ở đắk lắk"
-keyword = "tổng bí thư trung quốc đến thăm việt nam"
+
 driver.get("https://www.google.com/search?sca_esv=599503376&sxsrf=ACQVn0-YkRlT1UNLhRnMzK7gcVba-gwsLQ:1705596004849&tbm=nws&q="+keyword)
 
 
@@ -105,4 +106,5 @@ for _ in range(10):
     
 fileoutput = unidecode(keyword).replace(" ","_")
 
-print(fileoutput)
+with open(fileoutput+".json", "w") as f:
+    f.write(json.dumps(data, indent=4))
